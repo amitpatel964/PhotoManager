@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane prefHeight="600" prefWidth="600" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photo.controller.UserController">
+   <children>
+      <SplitPane dividerPositions="0.3" layoutY="7.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="229.0" AnchorPane.bottomAnchor="-7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="7.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.3" layoutX="55.0" layoutY="-62.0" orientation="VERTICAL" prefHeight="76.0" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Text layoutX="8.0" layoutY="16.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User system for Album" />
+                              <Button fx:id="logoutButton" layoutX="141.0" layoutY="-1.0" mnemonicParsing="false" onAction="#ButtonAction" text="Logout" />
+                              <Button fx:id="quitButton" layoutX="202.0" layoutY="-1.0" mnemonicParsing="false" onAction="#ButtonAction" text="Quit" />
+                           </children>
+                      </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Button fx:id="createButton" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#ButtonAction" text="Create Album" />
+                              <Button fx:id="renameButton" layoutX="108.0" layoutY="2.0" mnemonicParsing="false" onAction="#ButtonAction" text="Rename Album" />
+                              <Button fx:id="deleteButton" layoutX="212.0" layoutY="2.0" mnemonicParsing="false" onAction="#ButtonAction" text="Delete Album" />
+                              <Button fx:id="openButton" layoutX="307.0" layoutY="2.0" mnemonicParsing="false" onAction="#ButtonAction" text="Open Album" />
+                              <TextField fx:id="oldAlbumText" layoutX="5.0" layoutY="32.0" text="Album name" />
+                              <TextField fx:id="newAlbumText" layoutX="181.0" layoutY="32.0" text="Rename Album to This" AnchorPane.leftAnchor="181.0" />
+                              <Text fx:id="textToShow" layoutX="8.0" layoutY="100" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.4" layoutX="55.0" layoutY="-43.0" orientation="VERTICAL" prefHeight="114.66666666666667" prefWidth="270.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <GridPane>
+                      	<Label text="Search for photos between two dates" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                      	
+                        <TextField fx:id="searchFromDate" text="From Date: YYYY-MM-DD" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="searchToDate" text="To Date: YYYY-MM-DD" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Button fx:id="searchDate" mnemonicParsing="false" onAction="#ButtonAction" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        
+                        <Label text="Search for photos one tag" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        
+                        <TextField fx:id="searchOneTagType" text="Tag type" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <TextField fx:id="searchOneTagValue" text="Tag value" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Button fx:id="searchOneTag" mnemonicParsing="false" onAction="#ButtonAction" text="Search" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                        
+                        <Label text="Search for photos two tags" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                        
+                        <TextField fx:id="searchTwoTagTypeFirst" text="First tag type" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                        <TextField fx:id="searchTwoTagValueFirst" text="First tag value" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        <Button fx:id="searchTwoTagsAnd" mnemonicParsing="false" onAction="#ButtonAction" text="Search both tags match photo" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+                        
+                        <TextField fx:id="searchTwoTagTypeSecond" text="Second tag type" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                        <TextField fx:id="searchTwoTagValueSecond" text="Second tag value" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                        <Button fx:id="searchTwoTagsOr" mnemonicParsing="false" onAction="#ButtonAction" text="Search at least one tag matches photo" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+                        
+                      </GridPane>
+                      <AnchorPane fx:id="albumList" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Text layoutX="14.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List of album:" />
+                              <ListView fx:id="albumListView" onMouseClicked="#highlightAlbum" layoutX="14.0" layoutY="19.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

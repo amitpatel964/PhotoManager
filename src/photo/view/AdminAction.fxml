@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500" prefWidth="500" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photo.controller.AdminActionController">
+   <children>
+      <SplitPane dividerPositions="0.2" orientation="VERTICAL" prefHeight="223.0" prefWidth="275.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Button fx:id="listUserButton" layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#listuserAction" text="List Users" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="8.0" />
+                  <Button fx:id="logoutButton" layoutX="87.0" layoutY="8.0" mnemonicParsing="false" onAction="#logoutAction" text="Logout" AnchorPane.leftAnchor="87.0" AnchorPane.topAnchor="8.0" />
+                  <Button fx:id="quitButton" layoutX="151.0" layoutY="8.0" mnemonicParsing="false" onAction="#quitAction" text="Quit" AnchorPane.leftAnchor="151.0" AnchorPane.topAnchor="8.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <SplitPane dividerPositions="0.4" orientation="VERTICAL" prefHeight="151.33333333333334" prefWidth="272.6666666666667" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                           <children>
+                              <Button fx:id="createUserButton" layoutX="7.0" layoutY="1.0" mnemonicParsing="false" onAction="#createUserAction" text="Create User" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="1.0" />
+                              <Button fx:id="deleteUserButton" layoutX="96.0" layoutY="1.0" mnemonicParsing="false" onAction="#deleteUserAction" text="Delete User" AnchorPane.leftAnchor="96.0" AnchorPane.topAnchor="1.0" />
+                              <TextField fx:id="userNameTextField" layoutY="38.0" promptText="User Name" />
+                              <Text fx:id="showText" layoutX="162.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter user name" wrappingWidth="120.13667297363281" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="101.0" prefWidth="250.0">
+                           <children>
+                              <ListView fx:id="myListView" onMouseClicked="#highlightUserList" layoutX="14.0" layoutY="-69.0" prefHeight="99.33333333333333" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

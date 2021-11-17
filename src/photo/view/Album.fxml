@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TextField?>
+
+<BorderPane prefHeight="700" prefWidth="800" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="photo.controller.AlbumController">
+	<top>
+		<GridPane>
+			<Text fx:id="userText" GridPane.columnIndex="0" GridPane.rowIndex="0">
+				<font>
+					<Font size = "15"/>
+				</font>
+			</Text>
+			
+			<GridPane GridPane.columnIndex="0" GridPane.rowIndex="1" hgap="10" vgap="5">
+				<Button fx:id="returnButton" mnemonicParsing="false" onAction="#ButtonAction" text="Return to Album List" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+				<Button fx:id="logoutBottun" mnemonicParsing="false" onAction="#ButtonAction" text="Log out" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+	    		<Button fx:id="quitButton" mnemonicParsing="false" onAction="#ButtonAction" text="Quit" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+			</GridPane>
+	    	
+	    	<AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+	    		<children>
+	    			<Button fx:id="addButton" mnemonicParsing="false" onAction="#ButtonAction" text="Add Photo" layoutX="0.0" layoutY="2.0" />
+				    <Button fx:id="removeButton" mnemonicParsing="false" onAction="#ButtonAction" text="Remove Photo" layoutX="77.0" layoutY="2.0" />
+				    <Button fx:id="displayButton" mnemonicParsing="false" onAction="#ButtonAction" text="Display Photo" layoutX="175.0" layoutY="2.0" />
+				    <Button fx:id="slideshowButton" mnemonicParsing="false" onAction="#ButtonAction" text="Photo Slideshow" layoutX="269.0" layoutY="2.0" />
+	    		</children>
+	    	</AnchorPane>
+	    	
+			<AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="3" >
+				<children>
+					<TextField fx:id="captionTextField" text="Caption" layoutX="0.0" layoutY="2.0" />
+	    			<Button fx:id="captionButton" mnemonicParsing="false" onAction="#changePhotoCaption" text="Caption Photo" layoutX="165.0" layoutY="2.0"/>
+				</children>
+			</AnchorPane>
+	    	
+	    	<Label text="Tag Management" GridPane.columnIndex="0" GridPane.rowIndex="4">
+				<font>
+					<Font size = "12"/>
+				</font>
+			</Label>
+	    	
+	    	<ComboBox promptText="Tag Type" fx:id="tagTypeChooser" onAction="#tagTypeChosen" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+	    	
+	    	<AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="6">
+	    		<children>
+	    			<TextField fx:id="tagTypeTextField" text="Tag Type" layoutX="0.0" layoutY="2.0" />
+			    	<TextField fx:id="tagValueTextField" text="Tag Value" layoutX="152.0" layoutY="2.0" />
+			    	<Button fx:id="addTagButton" mnemonicParsing="false" onAction="#ButtonAction" text="Add Tag" layoutX="304.0" layoutY="2.0"/>
+			    	<Button fx:id="removeTagButton" mnemonicParsing="false" onAction="#ButtonAction" text="Remove Tag" layoutX="372.0" layoutY="2.0"/>
+	    		</children>
+	    	</AnchorPane>
+	    	
+			<AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="7">
+				<children>
+					<Button fx:id="addTagTypeButton" mnemonicParsing="false" onAction="#ButtonAction" text="Add Tag Type To List" layoutX="0.0" layoutY="2.0"/>
+	    			<Button fx:id="removeTagTypeButton" mnemonicParsing="false" onAction="#ButtonAction" text="Remove Tag Type From List" layoutX="132.0" layoutY="2.0"/>
+				</children>
+			</AnchorPane>
+	    	
+	    	<Label text="Move/Copy Photo to Another Album" GridPane.columnIndex="0" GridPane.rowIndex="8">
+				<font>
+					<Font size = "12"/>
+				</font>
+			</Label>
+			
+			<AnchorPane GridPane.columnIndex="0" GridPane.rowIndex="9">
+				<children>
+					<TextField fx:id="albumTextField" text="Album Name" layoutX="0.0" layoutY="2.0" />
+			    	<Button fx:id="albumCopyButton" mnemonicParsing="false" onAction="#ButtonAction" text="Copy Photo To Album" layoutX="152.0" layoutY="2.0"/>
+			    	<Button fx:id="albumMoveButton" mnemonicParsing="false" onAction="#ButtonAction" text="Move Photo To Album" layoutX="290.0" layoutY="2.0"/>
+				</children>
+			</AnchorPane>
+		</GridPane>
+	</top>
+	<bottom>
+		<VBox>
+			<Label fx:id="showProblems" text="">
+				<font>
+					<Font size = "15"/>
+				</font>
+			</Label>
+			<Label fx:id="textPhotoCaptionSelected" text="Photo Caption: ">
+				<font>
+					<Font size = "15"/>
+				</font>
+			</Label>
+			<Label text="List of Photos. Click on a photo to show the caption">
+				<font>
+					<Font size = "14"/>
+				</font>
+			</Label>
+			<ListView fx:id="photosAndCaptionsTable" onMouseClicked="#highlightPhoto"/>
+		</VBox>
+	</bottom>
+</BorderPane>
